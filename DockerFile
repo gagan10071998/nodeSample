@@ -1,5 +1,5 @@
 FROM node:14
-
+RUN sudo apt update && sudo apt install -y mongodb && sudo systemctl start mongod
 # Create app directory
 WORKDIR /usr/src/app
 
