@@ -28,7 +28,14 @@ REDIS_CLIENT.del('List')
 global.dummyArray = Array.from({ length: 999999 }, () => String(Math.floor(Math.random() * 40)));
 
 
-app.post("/ping", async (req, res) => {   //Define the endpoint
+app.get("/ping", async (req, res) => {   //Define the endpoint
+    return res.send({
+        status: "Healthy"
+    });
+
+});
+
+app.post("/ping1", async (req, res) => {   //Define the endpoint
     await REDIS_CLIENT.set("List", JSON.stringify(dummyArray), function (err) {
         if (err) throw err;
     })
